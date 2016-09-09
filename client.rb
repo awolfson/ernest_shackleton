@@ -7,16 +7,16 @@ class Client
     @client = get_client
   end
 
-  def config
-    @config ||= Config.new('twitter').values
+  def configurate
+    Config.new('twitter').values
   end
 
   def get_client
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = @config['consumer_key']
-      config.consumer_secret     = @config['consumer_secret']
-      config.access_token        = @config['access_token']
-      config.access_token_secret = @config['access_token_secret']
+      config.consumer_key        = configurate['consumer_key']
+      config.consumer_secret     = configurate['consumer_secret']
+      config.access_token        = configurate['access_token']
+      config.access_token_secret = configurate['access_token_secret']
     end
   end
 
@@ -64,7 +64,7 @@ class Client
       "That's closing the barn door after the horse has bolted.",
       "Don't look a gift horse in the mouth.",
       "You could drive a coach and horses through that.",
-      "I'm so hungry could eat a horse.",
+      "I'm so hungry I could eat a horse.",
       "You eat like a horse.",
       "It's enough to choke a horse.",
       "Every horse thinks its own pack is heaviest.",
